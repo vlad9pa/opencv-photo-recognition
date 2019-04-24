@@ -22,4 +22,16 @@ public class MainController {
     public byte[] detectFaceImage(@RequestParam("file") MultipartFile file){
        return imageProcessor.detectFace(file);
     }
+
+    @SneakyThrows
+    @PostMapping(value = "/eyeDetect/image", produces = MediaType.IMAGE_JPEG_VALUE)
+    public byte[] detectEyeImage(@RequestParam("file") MultipartFile file){
+        return imageProcessor.detectEye(file);
+    }
+
+    @SneakyThrows
+    @PostMapping(value = "/white/back", produces = MediaType.IMAGE_JPEG_VALUE)
+    public byte[] eleOnWhiteBack(@RequestParam("file") MultipartFile file){
+        return imageProcessor.backgroundColor(file);
+    }
 }
